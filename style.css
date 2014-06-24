@@ -1,0 +1,81 @@
+table, tr, td, img {
+	border : 0;
+	margin : 0;
+	padding: 0;
+}
+
+table {
+	border-spacing: 0;
+	border-collapse: collapse;
+}
+
+body {
+	border:0;
+	padding:0px;
+}
+
+#view {
+	border : 0;
+	padding: 0;
+	min-height: 500px;
+}
+
+#view img {
+	display: block;
+	margin: 0 auto;
+}
+
+#view h1 {
+	text-align: center;
+	line-height:500px;
+	font-family: "Arial Black";
+}
+
+#menu {
+	text-align: center;	
+}
+
+#menu button {
+	border:0;
+	margin-top: 10px;
+	margin-right: 10px;
+	padding: 14px 26px;
+	font-size: 14px;
+	line-height: 100%;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.4);
+	color: #fff;
+	display:inline-block;
+	vertical-align: middle;
+	text-align: center;
+	cursor: pointer;
+	font-weight: bold;
+	transition: background 0.1s ease-in-out;
+	-webkit-transition: background 0.1s ease-in-out;
+	-moz-transition: background 0.1s ease-in-out;
+	-ms-transition: background 0.1s ease-in-out;
+	-o-transition: background 0.1s ease-in-out;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+	color: #fff;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	font-family: 'Helvetica Neue', Helvetica, sans-serif;
+	background-color: #3fb8e8;
+	box-shadow: 0px 3px 0px 0px #3293ba;
+}
+
+#menu button:active {
+	padding-top: 15px;
+    margin-bottom: -1px;
+}
+
+#menu button:hover {
+	background-color: #1baae3;
+}
+
+#menu button, #menu button:active, #menu button:hover {
+	outline: 0 none;
+	text-decoration: none;
+	color: #fff;
+}
+
