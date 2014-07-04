@@ -6,6 +6,7 @@ var cur_date = new Date();
 var end_page = 0;
 var loaded_image = [];
 var is_fit_screen = false;
+var is_no_content = false;
 
 function get_hash_array()
 {
@@ -57,6 +58,11 @@ function preload_page(date, concurrent)
             img.addEventListener("error", function() {
                 if ((end_page === 0) || (page < end_page)) {
                     end_page = page;
+                }
+                
+                if (page == 1) {
+                    is_no_content = true;
+                    render_message("冇呢一頁 :( ");
                 }
             });
 
@@ -113,6 +119,7 @@ function render_page(page,size)
     view.innerHTML = "";
     if (loaded_image[page] !== undefined && loaded_image[page][size] !== undefined){
         view.appendChild(loaded_image[page-1][size-1]);
+        loaded_image[page-1][size-1].addEventListener("click", next_page);
     }else{
         var img = new Image();
         img.addEventListener("load", function () {
@@ -156,7 +163,7 @@ function next_page()
     cur_page++;
 
     if (end_page > 0 && cur_page >= end_page) {
-        render_message("End of Page");
+        render_message("最後一頁");
         cur_page = end_page
     }else{
         update_hash(cur_page, cur_date);
