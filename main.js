@@ -155,11 +155,9 @@ function next_page() {
   cur_page++;
 
   if (end_page > 0 && cur_page >= end_page) {
-    render_message("最後一頁");
     cur_page = end_page;
-  } else {
-    update_hash(cur_page, cur_date);
   }
+  update_hash(cur_page, cur_date);
 }
 
 function prev_page() {
@@ -241,13 +239,17 @@ function hash_change() {
     preload_page(cur_date, 3);
   }
 
-  render_page(cur_page, cur_size);
+  if (end_page > 0 && cur_page >= end_page) {
+    render_message("最後一頁");
+  } else {
+    render_page(cur_page, cur_size);
+  }
   window.scrollTo(0, 0);
 }
 
 function main() {
-  preload_page(cur_date, 3);
   hash_change();
+  preload_page(cur_date, 3);
 
   document.getElementById("prev_button").addEventListener("click", prev_page);
   document.getElementById("next_button").addEventListener("click", next_page);
