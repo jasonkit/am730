@@ -34,12 +34,12 @@ function make_hash_from_param(param) {
 function preload_page(date, concurrent) {
   var i;
 
-  var do_preload = function(page, s) {
+  var do_preload = function (page, s) {
     // console.log("loading page "+page);    
     var url = get_page_url(date, page, s);
     var img = new Image();
 
-    img.addEventListener("load", function() {
+    img.addEventListener("load", function () {
       if (loaded_image[page - 1] === undefined) {
         loaded_image[page - 1] = [];
       }
@@ -50,7 +50,7 @@ function preload_page(date, concurrent) {
       }
     });
 
-    img.addEventListener("error", function() {
+    img.addEventListener("error", function () {
       if ((end_page === 0) || (page < end_page)) {
         end_page = page;
       }
@@ -114,7 +114,7 @@ function render_page(page, size) {
     loaded_image[page - 1][size - 1].addEventListener("click", next_page);
   } else {
     var img = new Image();
-    img.addEventListener("load", function() {
+    img.addEventListener("load", function () {
       if (loaded_image[page - 1] === undefined) {
         loaded_image[page - 1] = [];
       }
@@ -122,7 +122,7 @@ function render_page(page, size) {
       loaded_image[page - 1][size - 1] = img;
     });
 
-    img.addEventListener("error", function() {
+    img.addEventListener("error", function () {
 
     });
 
@@ -195,26 +195,26 @@ function fit_screen() {
 
 function key_handler(e) {
   switch (e.charCode) {
-    case 102:
-      fit_screen();
-      break;
+  case 102:
+    fit_screen();
+    break;
 
-    case 32: // SPACE BAR
-    case 106: // j
-      next_page();
-      break;
+  case 32: // SPACE BAR
+  case 106: // j
+    next_page();
+    break;
 
-    case 107: // k
-      prev_page();
-      break;
+  case 107: // k
+    prev_page();
+    break;
 
-    case 61: // +
-      zoom_in();
-      break;
+  case 61: // +
+    zoom_in();
+    break;
 
-    case 45: // -
-      zoom_out();
-      break;
+  case 45: // -
+    zoom_out();
+    break;
   }
 }
 
